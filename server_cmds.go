@@ -382,7 +382,7 @@ type DBClient struct {
 // ClientDBList returns a list of client identities known by the server.
 func (s *ServerMethods) ClientDBList() ([]*DBClient, error) {
 	var dbclients []*DBClient
-	if _, err := s.ExecCmd(NewCmd("clientdblist -start=0 -duration=200").WithResponse(&dbclients)); err != nil {
+	if _, err := s.ExecCmd(NewCmd("clientdblist start=0 duration=200").WithResponse(&dbclients)); err != nil {
 		return nil, err
 	}
 	return dbclients, nil
